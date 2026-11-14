@@ -10,7 +10,7 @@ SETUP = r'''# --- Get the Trilingua code ---------------------------------------
 # Option A (after the repo is public): clone it.
 # Option B: upload the repo folder as a Kaggle Dataset named "trilingua-code" and attach it.
 import os, sys, glob, shutil, subprocess
-REPO_URL = "https://github.com/aladewealth/trilingua.git"   # TODO: confirm once the repo is pushed
+REPO_URL = "https://github.com/aladewealth/Trilingual-.git"
 CODE = "/tmp/trilingua"
 attached = glob.glob("/kaggle/input/**/trilingua/model.py", recursive=True)
 if os.path.exists(CODE):
