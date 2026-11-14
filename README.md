@@ -1,4 +1,4 @@
-# Trilingua
+# Trilingual
 
 **A ~70M-parameter English / Spanish / French language model trained from scratch on free Kaggle GPUs.**
 We wrote and trained every part ourselves: the tokenizer, the streaming data pipeline, the transformer, the DDP training loop, the evaluation and the demo.
