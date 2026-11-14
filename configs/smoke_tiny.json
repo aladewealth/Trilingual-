@@ -1,0 +1,20 @@
+{
+  "model": "tiny",
+  "seq_len": 128,
+  "data_dir": "/workspace/work/trilingua_smoke/data",
+  "micro_batch": 16,
+  "global_batch_tokens": 4096,
+  "max_steps": 300,
+  "warmup_steps": 20,
+  "lr": 3e-3,
+  "min_lr_ratio": 0.1,
+  "weight_decay": 0.1,
+  "log_interval": 10,
+  "eval_interval": 50,
+  "eval_chunks": 48,
+  "ckpt_interval": 50,
+  "sample_tokens": 32,
+  "dtype": "fp32",
+  "compile": "off",
+  "out_dir": "/workspace/work/trilingua_smoke/out_a"
+}

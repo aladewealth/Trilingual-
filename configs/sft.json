@@ -1,0 +1,10 @@
+{
+  "_comment": "Defaults used by notebooks/03_sft.ipynb (passed as CLI flags to python -m trilingua.sft train)",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "epochs": 2,
+  "lr": 1e-4,
+  "warmup_steps": 30,
+  "eval_interval": 100,
+  "cont_per_lang": 1500
+}

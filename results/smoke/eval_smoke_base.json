@@ -1,0 +1,132 @@
+{
+  "model": "/workspace/work/trilingua_smoke/out_a/ckpt_latest.pt",
+  "params": 1377408,
+  "config": {
+    "vocab_size": 4096,
+    "max_seq_len": 128,
+    "d_model": 128,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_kv_head": 4,
+    "ffn_hidden": 384,
+    "multiple_of": 64,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-05,
+    "dropout": 0.0,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "shard_metrics": {
+    "en": {
+      "val_loss": 5.952155971584024,
+      "ppl": 384.5815928804264,
+      "bpb": 2.79272413617649,
+      "tokens": 61568,
+      "windows": 481
+    },
+    "es": {
+      "val_loss": 5.950155203882009,
+      "ppl": 383.81290369127925,
+      "bpb": 2.7548486906046583,
+      "tokens": 60032,
+      "windows": 469
+    },
+    "fr": {
+      "val_loss": 5.986556311842759,
+      "ppl": 398.0415161753789,
+      "bpb": 2.808968482163832,
+      "tokens": 61568,
+      "windows": 481
+    }
+  },
+  "doc_bpb": {
+    "smoke_base": {
+      "en": 2.871666787209446,
+      "es": 2.940732795527086,
+      "fr": 2.8826961762594427
+    }
+  },
+  "langid_classifier_accuracy_on_real_text": {
+    "en": 1.0,
+    "es": 1.0,
+    "fr": 1.0
+  },
+  "langid_generations": {
+    "accuracy": {
+      "en": 0.35,
+      "es": 0.05,
+      "fr": 0.2
+    },
+    "mean_accuracy": 0.19999999999999998,
+    "confusion": {
+      "en": {
+        "fr": 3,
+        "es": 9,
+        "en": 7,
+        "fi": 1
+      },
+      "es": {
+        "fr": 17,
+        "gl": 1,
+        "en": 1,
+        "es": 1
+      },
+      "fr": {
+        "pt": 2,
+        "en": 3,
+        "es": 7,
+        "fr": 4,
+        "ca": 1,
+        "pl": 2,
+        "de": 1
+      }
+    },
+    "backend": "fasttext",
+    "n_per_lang": 20,
+    "examples": {
+      "en": [
+        {
+          "pred": "fr",
+          "text": "RT, OFCS.\nLa d'éyteré, la rrique, Boleure. Alitta les plus le 6\nMlus l'rez dans des le Lort"
+        },
+        {
+          "pred": "es",
+          "text": "4.310) 32007 FLAE,52L-46,3DM0)9620, T1D.78644)\nRUA- The2"
+        },
+        {
+          "pred": "en",
+          "text": "4, 995 AI)9."
+        }
+      ],
+      "es": [
+        {
+          "pred": "fr",
+          "text": " é l'aon une la ééz, 182077)\n- PDL5.\n-3RAO, Le plus Ber, ABCFa. Camaté (-1"
+        },
+        {
+          "pred": "fr",
+          "text": " à ce l’N18 de dégée en la réquiris le prieré qui les terutité dans cheliné qu'un cendle, il La un pr'est une Houal"
+        },
+        {
+          "pred": "fr",
+          "text": " dans de une écant les l’une térie et a l’'est 200H. CCVA.1. Le mique des reé dans les les réchs du L'S) pour l'en"
+        }
+      ],
+      "fr": [
+        {
+          "pred": "pt",
+          "text": "D-3.RP.1,3\"9\nO) S-45 662U-2\nA.\n-8O, 61RB/.\nI6 de PCS."
+        },
+        {
+          "pred": "en",
+          "text": "92.3A1 (O3) MNEHO 1980 (9- LFRME-3, CR7/A494.1, 20137."
+        },
+        {
+          "pred": "es",
+          "text": "T-99U.7 1, 42) 1631LK, FAN: Dh,20115-5\n1,7.\nLD9. The 17068,"
+        }
+      ]
+    }
+  },
+  "eval_seconds": 19.3
+}

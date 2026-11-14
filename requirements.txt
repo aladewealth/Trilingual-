@@ -1,0 +1,16 @@
+torch>=2.3
+numpy
+tokenizers>=0.19
+datasets>=3.0
+huggingface_hub>=0.24
+safetensors
+matplotlib
+# demo
+gradio>=4.0
+# optional: evaluation extras
+transformers      # GPT-2 bits-per-byte comparison
+fasttext-wheel    # language-ID of generations (falls back to a heuristic if missing)
+wandb             # only used when WANDB_API_KEY is set
+# dev
+pytest
+nbformat

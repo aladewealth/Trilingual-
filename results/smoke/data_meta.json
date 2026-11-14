@@ -1,0 +1,54 @@
+{
+  "langs": [
+    "en",
+    "es",
+    "fr"
+  ],
+  "per_lang": {
+    "en": {
+      "lang": "en",
+      "source": [
+        "HuggingFaceFW/fineweb-edu",
+        "sample-10BT"
+      ],
+      "train_tokens": 1503135,
+      "val_tokens": 61578,
+      "train_shards": 2,
+      "val_shards": 1,
+      "docs_seen": 2048,
+      "val_every": 20,
+      "seconds": 11.4
+    },
+    "es": {
+      "lang": "es",
+      "source": [
+        "epfml/FineWeb2-HQ",
+        "spa_Latn"
+      ],
+      "train_tokens": 751490,
+      "val_tokens": 60037,
+      "train_shards": 1,
+      "val_shards": 1,
+      "docs_seen": 1024,
+      "val_every": 20,
+      "seconds": 8.7
+    },
+    "fr": {
+      "lang": "fr",
+      "source": [
+        "epfml/FineWeb2-HQ",
+        "fra_Latn"
+      ],
+      "train_tokens": 752585,
+      "val_tokens": 61679,
+      "train_shards": 1,
+      "val_shards": 1,
+      "docs_seen": 1024,
+      "val_every": 20,
+      "seconds": 9.3
+    }
+  },
+  "vocab_size": 4096,
+  "total_train_tokens": 3007210,
+  "format": "uint16 shards, 256xint32 header; docs = <|lang|> text <|endoftext|>"
+}

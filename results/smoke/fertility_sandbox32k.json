@@ -1,0 +1,47 @@
+{
+  "en": {
+    "docs": 53,
+    "words": 30537,
+    "bytes": 189342,
+    "trilingua": {
+      "tokens": 44360,
+      "tokens_per_word": 1.4526639813996136,
+      "bytes_per_token": 4.268304779080252
+    },
+    "gpt2": {
+      "tokens": 41270,
+      "tokens_per_word": 1.3514752595212365,
+      "bytes_per_token": 4.587884661982069
+    }
+  },
+  "es": {
+    "docs": 51,
+    "words": 30179,
+    "bytes": 187072,
+    "trilingua": {
+      "tokens": 42894,
+      "tokens_per_word": 1.4213194605520394,
+      "bytes_per_token": 4.36126264745652
+    },
+    "gpt2": {
+      "tokens": 63560,
+      "tokens_per_word": 2.1061002683985555,
+      "bytes_per_token": 2.9432347388294526
+    }
+  },
+  "fr": {
+    "docs": 48,
+    "words": 29535,
+    "bytes": 189563,
+    "trilingua": {
+      "tokens": 44452,
+      "tokens_per_word": 1.5050617910953106,
+      "bytes_per_token": 4.264442544767389
+    },
+    "gpt2": {
+      "tokens": 63179,
+      "tokens_per_word": 2.139123074318605,
+      "bytes_per_token": 3.0004115291473434
+    }
+  }
+}

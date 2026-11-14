@@ -1,0 +1,21 @@
+[project]
+name = "trilingua"
+version = "0.1.0"
+description = "A small English/Spanish/French language model trained from scratch (Arbiter Hacks V1)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Alade Wealth (aladewealth)"}]
+dependencies = ["torch>=2.3", "numpy", "tokenizers>=0.19", "datasets>=3.0", "huggingface_hub>=0.24",
+                "safetensors", "matplotlib"]
+
+[project.optional-dependencies]
+demo = ["gradio>=4.0"]
+eval = ["transformers", "fasttext-wheel"]
+dev = ["pytest", "nbformat"]
+
+[tool.setuptools]
+packages = ["trilingua"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

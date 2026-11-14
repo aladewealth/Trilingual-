@@ -1,0 +1,127 @@
+{
+  "model": "/workspace/work/trilingua_smoke/sft_out/sft_final.pt",
+  "params": 1377408,
+  "config": {
+    "vocab_size": 4096,
+    "max_seq_len": 128,
+    "d_model": 128,
+    "n_layer": 4,
+    "n_head": 4,
+    "n_kv_head": 4,
+    "ffn_hidden": 384,
+    "multiple_of": 64,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-05,
+    "dropout": 0.0,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+  "shard_metrics": {
+    "en": {
+      "val_loss": 6.108742727510817,
+      "ppl": 449.7728724739899,
+      "bpb": 2.8661939200279294,
+      "tokens": 61568,
+      "windows": 481
+    },
+    "es": {
+      "val_loss": 6.1189564119821895,
+      "ppl": 454.3902507595801,
+      "bpb": 2.833001574214127,
+      "tokens": 60032,
+      "windows": 469
+    },
+    "fr": {
+      "val_loss": 6.150438750420238,
+      "ppl": 468.9230818539404,
+      "bpb": 2.8858642099854563,
+      "tokens": 61568,
+      "windows": 481
+    }
+  },
+  "doc_bpb": {
+    "smoke_sft": {
+      "en": 2.9459428920789823,
+      "es": 2.993152258722453,
+      "fr": 2.963752614540218
+    }
+  },
+  "langid_classifier_accuracy_on_real_text": {
+    "en": 1.0,
+    "es": 1.0,
+    "fr": 1.0
+  },
+  "langid_generations": {
+    "accuracy": {
+      "en": 0.8,
+      "es": 0.3,
+      "fr": 0.5
+    },
+    "mean_accuracy": 0.5333333333333333,
+    "confusion": {
+      "en": {
+        "en": 8,
+        "fr": 1,
+        "da": 1
+      },
+      "es": {
+        "en": 6,
+        "es": 3,
+        "fr": 1
+      },
+      "fr": {
+        "fr": 5,
+        "en": 2,
+        "es": 1,
+        "unk": 2
+      }
+    },
+    "backend": "fasttext",
+    "n_per_lang": 10,
+    "examples": {
+      "en": [
+        {
+          "pred": "en",
+          "text": ".199, O.24 14, 6 the other a Srh, H) the bething was rlar of"
+        },
+        {
+          "pred": "en",
+          "text": ": the homing are that for a Solying used at your been.3m's have other hey are seran to beav"
+        },
+        {
+          "pred": "en",
+          "text": " 24 33,"
+        }
+      ],
+      "es": [
+        {
+          "pred": "en",
+          "text": ".3,8\n, The 5\nCO 4- He."
+        },
+        {
+          "pred": "en",
+          "text": "3C (.7981  20 Mighelat is Hum, which be's vamate the \"Rs the"
+        },
+        {
+          "pred": "es",
+          "text": "Cer.10.8 29) CPO-8\n8\nD\nH.\n5 FTLI,0S\nL"
+        }
+      ],
+      "fr": [
+        {
+          "pred": "fr",
+          "text": "Ru sé les volalée et les pronion.1a les unegant des pierie de prot dérs"
+        },
+        {
+          "pred": "fr",
+          "text": "1\nLondil, Il, Reique les ce est 2,"
+        },
+        {
+          "pred": "en",
+          "text": ".7.5.3), ED3 4 a Con (CTB-) As 7 is ford, By:"
+        }
+      ]
+    }
+  },
+  "eval_seconds": 14.1
+}
