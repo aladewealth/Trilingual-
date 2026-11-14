@@ -1,5 +1,5 @@
 """Pretraining loop. Single process or DDP (torchrun), fp16+GradScaler on T4,
-bf16 where supported, fp32 on CPU. Fully resumable across Kaggle sessions.
+bf16 on Ampere+, fp16 + GradScaler on T4/P100, fp32 on CPU. Fully resumable across Kaggle sessions.
 
   python -m trilingua.train --config_file configs/pretrain_base.json
   torchrun --standalone --nproc_per_node=2 -m trilingua.train --config_file configs/pretrain_base.json
@@ -132,7 +132,10 @@ def main(argv=None):
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
     if a.dtype == "auto":
-        a.dtype = ("bf16" if torch.cuda.is_bf16_supported() else "fp16") if dev_type == "cuda" else "fp32"
+        # Native bf16 needs compute capability >= 8.0 (Ampere+). torch.cuda.is_bf16_supported()
+        # returns True on T4/P100 via slow emulation, which cut throughput ~5x, so check capability.
+        a.dtype = (("bf16" if torch.cuda.get_device_capability()[0] >= 8 else "fp16")
+                   if dev_type == "cuda" else "fp32")
     ptdtype = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[a.dtype]
     autocast = torch.autocast(device_type=dev_type, dtype=ptdtype) if a.dtype != "fp32" else nullcontext()
     os.makedirs(a.out_dir, exist_ok=True)

@@ -116,7 +116,7 @@ def train(a):
     train_ex = _load_examples(os.path.join(a.data_dir, "sft_train.jsonl"), tok, cfg.max_seq_len)
     val_ex = _load_examples(os.path.join(a.data_dir, "sft_val.jsonl"), tok, cfg.max_seq_len)
     # sort-ish by length within buckets to reduce padding, then shuffle buckets each epoch
-    dtype = a.dtype if a.dtype != "auto" else ("fp16" if dev_type == "cuda" and not torch.cuda.is_bf16_supported() else ("bf16" if dev_type == "cuda" else "fp32"))
+    dtype = a.dtype if a.dtype != "auto" else (("bf16" if torch.cuda.get_device_capability()[0] >= 8 else "fp16") if dev_type == "cuda" else "fp32")
     pt = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[dtype]
     autocast = torch.autocast(dev_type, dtype=pt) if dtype != "fp32" else nullcontext()
     try:
