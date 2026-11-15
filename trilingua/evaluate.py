@@ -71,11 +71,14 @@ def doc_bpb_ours(model, tok, texts, lang, device):
 def doc_bpb_hf(name, texts, device):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     htok = AutoTokenizer.from_pretrained(name)
-    m = AutoModelForCausalLM.from_pretrained(name).to(device).eval()
-    L = getattr(m.config, "n_positions", 1024)
+    m = AutoModelForCausalLM.from_pretrained(name, torch_dtype=torch.float32).to(device).eval()
+    # same 1024-token window as Trilingua, so every model sees the same amount of context
+    ctx = getattr(m.config, "n_positions", None) or getattr(m.config, "max_position_embeddings", None) or 1024
+    L = min(1024, ctx)
     nats, nbytes = 0.0, 0
     for t in texts:
-        ids = [htok.bos_token_id or htok.eos_token_id] + htok.encode(t)
+        start = htok.bos_token_id if htok.bos_token_id is not None else htok.eos_token_id
+        ids = [start] + htok.encode(t, add_special_tokens=False)
         ids = ids[: L]
         x = torch.tensor([ids], device=device)
         logits = m(x).logits[0, :-1].float()
