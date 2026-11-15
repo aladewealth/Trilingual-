@@ -25,7 +25,7 @@ datasets: [HuggingFaceFW/fineweb-edu, epfml/FineWeb2-HQ{extra_ds}]
 # Trilingua ({kind})
 
 A {params:.1f}M-parameter decoder-only language model for English, Spanish and French,
-trained from scratch (tokenizer included) for the Arbiter Hacks V1 hackathon.
+trained from scratch (tokenizer included).
 Architecture: pre-norm transformer, RMSNorm, RoPE, SwiGLU, tied embeddings, {n_layer} layers,
 d_model {d_model}, {n_head} heads, context {ctx}.
 

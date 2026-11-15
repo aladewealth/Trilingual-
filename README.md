@@ -3,8 +3,6 @@
 **A ~70M-parameter English / Spanish / French language model trained from scratch on free Kaggle GPUs.**
 We wrote and trained every part ourselves: the tokenizer, the streaming data pipeline, the transformer, the DDP training loop, the evaluation and the demo.
 
-> Arbiter Hacks V1, General Track. "Trilingua" is a working name.
->
 > **Status:** trained, evaluated and released. Pretraining (1.25B tokens), SFT and evaluation all ran on Kaggle 2× T4 in November 2026. Weights: [huggingface.co/aladewealth/trilingua](https://huggingface.co/aladewealth/trilingua) (base at the root, SFT in `sft/`). Every number below comes from those runs' logs.
 
 ![Trilingua vs small open models, bits per byte](docs/trilingua_compare.png)
@@ -252,7 +250,7 @@ docs/                 demo video script
 
 ---
 
-## Hackathon write-up draft (Devpost)
+## Project write-up
 
 **Inspiration.** Most "build an LLM" projects either fine-tune someone else's model or train an English-only toy. We wanted to know what one person can build from nothing on free GPUs if they own every layer. English, Spanish and French cover about a billion speakers, and they show a real flaw in English-first tooling: GPT-2's tokenizer spends about 50% more tokens on Spanish and French text.
 
