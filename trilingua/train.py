@@ -179,7 +179,12 @@ def main(argv=None):
         ck = torch.load(ckpt_path, map_location="cpu", weights_only=False)
         raw_model.load_state_dict(strip_compile_prefix(ck["model"]))
         optimizer.load_state_dict(ck["optimizer"])
-        scaler.load_state_dict(ck["scaler"])
+        # A bf16/fp32 run saves an empty state from a disabled GradScaler; loading that into an
+        # enabled fp16 scaler raises, so start a fresh scale when switching precision on resume.
+        if ck.get("scaler") and scaler.is_enabled():
+            scaler.load_state_dict(ck["scaler"])
+        elif master and scaler.is_enabled():
+            print("checkpoint has no GradScaler state (saved in bf16/fp32); starting a fresh fp16 scale", flush=True)
         loader.load_state_dict(ck["loader"])
         step, tokens_seen, prev_elapsed = ck["step"], ck["tokens"], ck.get("elapsed_total", 0.0)
         wandb_id = ck.get("wandb_id")
